@@ -1,0 +1,12 @@
+{
+    "WMIProviderServer":"Lab-CM.Home.Lab",
+    "SiteCode": "PS1",
+    "SQLServer": "Lab-CM.Home.Lab",
+    "DatabaseName":"CM_PS1",
+    "ExcludedUsers": [
+        "DOMAIN\\UserName",
+        "DOMAIN\\UserName2"
+    ],
+    "StartWebHook": "FULLWebhookURL",
+    "ReadOnly": true
+}
