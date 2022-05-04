@@ -56,6 +56,10 @@ catch {
 
 foreach($deployment in $Deployments){
     $DeploymentInformation = ConvertTo-APEPSObject -Deployment $deployment
+    if($null -eq $DeploymentInformation){
+        #means no ID found - happens when SQL script returns a blank result (meaning nothing was found)
+        continue
+    }
     if($DeploymentInformation.StartTime -gt [DateTime]::UTCNow.AddYears(9)){
         Write-APELog -Message "Deployment found to already be delayed > 9 years so nothing to do - moving to next one. Deployment Information:" -IncludeObjects @{
             'DeploymentName' = $DeploymentInformation.DeploymentName

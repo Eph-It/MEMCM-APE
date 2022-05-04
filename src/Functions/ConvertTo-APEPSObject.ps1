@@ -38,6 +38,7 @@ Function ConvertTo-APEPSObject {
         $ReturnObject.SoftwareName = $deployment.PkgProgram
         $ReturnObject.SoftwareType = 'Package'
         $ReturnObject.WMISchedule = $Deployment.MandatorySched
+        return $ReturnObject
     }
     elseif ($null -ne $deployment.AssignmentID) {
         $ReturnObject.CollectionName = $deployment.CollectionName
@@ -52,6 +53,7 @@ Function ConvertTo-APEPSObject {
         $ReturnObject.SoftwareName = $deployment.ApplicationName
         $ReturnObject.SoftwareType = 'Application'
         $ReturnObject.UseUTC = $deployment.UseGMTTimes
+        return $ReturnObject
     }
-    return $ReturnObject
+    return $null
 }
